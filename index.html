@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Гостевой дом «Ольга» — СТ «Топольки-4», ул. Железнодорожная, 180</title>
+<meta name="description" content="Гостевой дом-студия «Ольга»: 9 уютных номеров-студий. СТ «Топольки-4», ул. Железнодорожная, 180. Wi-Fi, парковка, бронирование по телефону 8 905 495-96-12 и в Telegram @ckot_23.">
+<link rel="canonical" href="https://example.ru/"><!-- TODO: заменить canonical на реальный домен -->
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Гостевой дом «Ольга» — Краснодар">
+<meta property="og:description" content="Гостевой дом-студия «Ольга»: девять номеров-студий. Бронирование: 8 905 495-96-12, Telegram @ckot_23.">
+<meta property="og:image" content="https://images.pexels.com/photos/39836703/pexels-photo-39836703.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200">
+<meta name="theme-color" content="#3E2C23">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%233E2C23'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Georgia' font-size='36' fill='%23FAF7F2'%3EО%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LodgingBusiness","name":"Гостевой дом «Ольга»","description":"Гостевой дом-студия «Ольга»: девять номеров-студий","url":"https://example.ru/","telephone":"+79054959612","address":{"@type":"PostalAddress","addressLocality":"Краснодар","streetAddress":"СТ «Топольки-4», ул. Железнодорожная, 180","addressCountry":"RU"},"geo":{"@type":"GeoCoordinates","latitude":45.097424,"longitude":38.991150},"checkinTime":"14:00","checkoutTime":"12:00","amenityFeature":[{"@type":"LocationFeatureSpecification","name":"Wi-Fi"},{"@type":"LocationFeatureSpecification","name":"Парковка"},{"@type":"LocationFeatureSpecification","name":"Кондиционер"}]}
+</script>
+<style>
+/* ============================================================
+   assets/css/style.css — в одном файле для удобной публикации.
+   При разделении проекта вынесите этот блок в отдельный файл.
+   ============================================================ */
+:root{
+  --bg:#FAF7F2; --bg-alt:#F1EBE1; --dark:#3E2C23; --text:#2A1F1A; --muted:#7A6A60;
+  --accent:#A8763E; --accent-dark:#8F6230; --line:#E2D9CC; --white:#fff;
+  --err:#B3402E; --ok:#2E7D4F;
+  --r:10px; --r-sm:6px;
+  --shadow:0 8px 30px rgba(62,44,35,.06);
+  --serif:"Playfair Display",Georgia,serif; --sans:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4,p,ul,ol,figure{margin:0}
+ul{padding:0;list-style:none}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 20px}
+@media(min-width:768px){.wrap{padding:0 32px}}
+.section{padding:64px 0}
+@media(min-width:1024px){.section{padding:104px 0}}
+.eyebrow{text-transform:uppercase;letter-spacing:.22em;font-size:11px;font-weight:800;color:var(--accent);margin-bottom:14px}
+.h2{font-family:var(--serif);font-weight:600;font-size:clamp(30px,4.4vw,46px);line-height:1.15;color:var(--dark)}
+.lead{color:var(--muted);max-width:640px;margin-top:14px;font-size:17px}
+.rule{width:56px;height:1px;background:var(--accent);margin:22px 0 0;border:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 26px;border-radius:6px;border:1px solid var(--dark);font-weight:700;font-size:15px;text-decoration:none;transition:all .25s ease;text-align:center}
+.btn-primary{background:var(--dark);color:#fff}
+.btn-primary:hover{background:var(--accent-dark);border-color:var(--accent-dark)}
+.btn-accent{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn-accent:hover{background:var(--accent-dark)}
+.btn-light{background:#fff;color:var(--dark);border-color:#fff}
+.btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.65)}
+.btn-ghost:hover{background:rgba(255,255,255,.12)}
+.btn-outline{background:transparent;color:var(--dark)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent-dark)}
+.icon{width:19px;height:19px;flex:none}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+/* Шапка */
+.header{position:sticky;top:0;z-index:60;background:rgba(250,247,242,.92);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:.25s}
+.header.scrolled{border-bottom-color:var(--line);box-shadow:var(--shadow)}
+.header-in{display:flex;align-items:center;gap:20px;min-height:74px}
+.logo{text-decoration:none;line-height:1.05;flex:none}
+.logo b{font-family:var(--serif);font-size:21px;letter-spacing:.04em;text-transform:uppercase;color:var(--dark);display:block;font-weight:700}
+.logo span{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--accent);font-weight:800}
+.nav{display:none;gap:28px;margin-left:auto}
+.nav a{text-decoration:none;font-size:14px;font-weight:600;color:var(--text)}
+.nav a:hover{color:var(--accent-dark)}
+.header-contacts{margin-left:auto;display:none;align-items:center;gap:14px}
+@media(min-width:1024px){.nav{display:flex}.header-contacts{display:flex;margin-left:0}}
+.phone-link{font-weight:800;text-decoration:none;white-space:nowrap}
+.phone-link small{display:block;font-size:11px;color:var(--muted);font-weight:600}
+.tg-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border:1px solid var(--line);border-radius:6px;background:#fff;text-decoration:none;font-weight:700;font-size:14px;white-space:nowrap;transition:.25s}
+.tg-btn:hover{border-color:var(--accent);color:var(--accent-dark)}
+.burger{margin-left:auto;width:44px;height:44px;border:1px solid var(--line);border-radius:6px;background:#fff;display:grid;place-items:center}
+@media(min-width:1024px){.burger{display:none}}
+.mobile-menu{display:none;border-top:1px solid var(--line);background:var(--bg);padding:18px 20px 24px}
+.mobile-menu.open{display:block}
+.mobile-menu a.mlink{display:block;padding:11px 0;border-bottom:1px solid var(--line);text-decoration:none;font-weight:700}
+.mobile-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+/* Hero */
+.hero{position:relative;min-height:calc(100svh - 74px);display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--dark)}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,31,26,.22),rgba(42,31,26,.28) 42%,rgba(42,31,26,.86))}
+.hero-in{position:relative;z-index:2;padding:70px 0 34px;width:100%}
+.hero .tag{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.45);border-radius:999px;padding:7px 14px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;background:rgba(62,44,35,.25)}
+.hero h1{font-family:var(--serif);text-transform:uppercase;letter-spacing:.03em;font-size:clamp(38px,7vw,78px);line-height:1.02;margin-top:20px;max-width:820px}
+.hero h1 em{font-style:normal;color:#E8C98F}
+.hero p.sub{margin-top:18px;font-size:clamp(16px,2.2vw,20px);max-width:640px;color:rgba(255,255,255,.92)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.hero-contacts{margin-top:34px;border-top:1px solid rgba(255,255,255,.28);padding-top:20px;display:flex;flex-wrap:wrap;gap:14px 30px;align-items:center;justify-content:space-between}
+.hero-contacts a{color:#fff;text-decoration:none}
+.hc-item small{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.7);font-weight:800}
+.hc-item b{font-size:19px}
+.hero-stats{display:flex;gap:26px;flex-wrap:wrap}
+.hero-stats div b{font-family:var(--serif);font-size:24px;display:block}
+.hero-stats div span{font-size:12px;color:rgba(255,255,255,.75)}
+/* Полоса преимуществ */
+.strip{background:var(--dark);color:#fff}
+.strip-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;padding:22px 0}
+@media(min-width:900px){.strip-grid{grid-template-columns:repeat(4,1fr)}}
+.strip-item{display:flex;gap:11px;align-items:flex-start;font-size:14px}
+.strip-item b{display:block;font-size:15px}.strip-item span{color:rgba(255,255,255,.72);font-size:13px}
+/* Номера */
+.rooms-head{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-end;justify-content:space-between}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.chip{padding:9px 16px;border:1px solid var(--line);background:#fff;border-radius:999px;font-size:14px;font-weight:700;transition:.2s}
+.chip.active{background:var(--dark);color:#fff;border-color:var(--dark)}
+.rooms-grid{display:grid;gap:24px;margin-top:36px}
+@media(min-width:700px){.rooms-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1080px){.rooms-grid{grid-template-columns:repeat(3,1fr)}}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .25s,transform .25s}
+.card:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+.carousel{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--bg-alt)}
+.carousel img{width:100%;height:100%;object-fit:cover}
+.car-btn{position:absolute;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.7);background:rgba(62,44,35,.55);color:#fff;font-size:18px;line-height:1}
+.car-prev{left:10px}.car-next{right:10px}
+.dots{position:absolute;left:50%;transform:translateX(-50%);bottom:10px;display:flex;gap:6px}
+.dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.55)}
+.dots i.on{background:#fff}
+.badge{position:absolute;top:12px;left:12px;background:rgba(250,247,242,.94);color:var(--dark);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:6px 10px;border-radius:4px}
+.card-body{padding:20px;display:flex;flex-direction:column;gap:12px;flex:1}
+.card h3{font-family:var(--serif);font-size:22px;color:var(--dark);line-height:1.2}
+.card p{color:var(--muted);font-size:14.5px}
+.specs{display:flex;flex-wrap:wrap;gap:7px}
+.specs span{font-size:12.5px;font-weight:700;background:var(--bg-alt);border:1px solid var(--line);border-radius:999px;padding:5px 10px}
+.amens{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:var(--muted)}
+.card-foot{margin-top:auto;border-top:1px solid var(--line);padding-top:16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.price-note{font-size:13px;color:var(--muted)}.price-note b{display:block;color:var(--dark);font-size:14px}
+.card-foot .btn{padding:11px 16px;font-size:14px}
+/* Удобства */
+.alt{background:var(--bg-alt)}
+.amen-grid{display:grid;gap:16px;margin-top:36px}
+@media(min-width:600px){.amen-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.amen-grid{grid-template-columns:repeat(4,1fr)}}
+.amen{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.amen .ic{width:46px;height:46px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;color:var(--accent-dark);margin-bottom:14px;background:var(--bg)}
+.amen h3{font-size:16px;margin-bottom:5px}.amen p{font-size:14px;color:var(--muted)}
+/* О доме — две колонки */
+.about-grid{display:grid;gap:30px;align-items:center}
+@media(min-width:960px){.about-grid{grid-template-columns:1.05fr .95fr;gap:56px}}
+.about-photo{border-radius:var(--r);overflow:hidden;border:1px solid var(--line)}
+.about-photo img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+.check{margin-top:20px;display:grid;gap:11px}
+.check li{display:flex;gap:11px;align-items:flex-start}
+.check li::before{content:"✓";width:24px;height:24px;flex:none;border-radius:50%;background:var(--dark);color:#fff;display:grid;place-items:center;font-size:13px;margin-top:1px}
+/* Бронирование */
+.booking{background:var(--dark);color:#fff}
+.booking .h2{color:#fff}.booking .lead{color:rgba(255,255,255,.76)}
+.booking-grid{display:grid;gap:28px;margin-top:36px}
+@media(min-width:1020px){.booking-grid{grid-template-columns:1.55fr .85fr;align-items:start}}
+.form-card{background:#fff;color:var(--text);border-radius:12px;padding:24px;border:1px solid var(--line)}
+@media(min-width:700px){.form-card{padding:32px}}
+.form-grid{display:grid;gap:16px}
+@media(min-width:640px){.form-grid{grid-template-columns:1fr 1fr}.span2{grid-column:span 2}}
+.field label{display:block;font-size:13px;font-weight:800;margin-bottom:7px}
+.field label i{color:var(--err);font-style:normal}
+.input,select.input,textarea.input{width:100%;box-sizing:border-box;padding:13px 14px;border:1px solid var(--line);border-radius:6px;background:#fff;font:inherit;font-size:15px;color:var(--text);transition:border-color .2s}
+.input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(168,118,62,.14)}
+.input.bad{border-color:var(--err)}
+.hint{font-size:12.5px;color:var(--muted);margin-top:6px}
+.hint.err{color:var(--err);font-weight:700}
+.check-line{display:flex;gap:11px;align-items:flex-start;border:1px solid var(--line);background:var(--bg);border-radius:8px;padding:14px}
+.check-line input{width:20px;height:20px;accent-color:var(--accent);flex:none;margin-top:2px}
+.check-line label{font-size:14.5px;font-weight:700}
+.check-line p{font-size:13px;color:var(--muted);font-weight:400;margin-top:2px}
+.hidden-field{display:none}.hidden-field.open{display:block}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--muted)}
+.consent input{width:18px;height:18px;accent-color:var(--accent);flex:none;margin-top:2px}
+.consent button.link{background:none;border:0;padding:0;color:var(--accent-dark);text-decoration:underline;font-size:13.5px}
+.nights{display:flex;align-items:center;gap:10px;background:#FFF7E8;border:1px solid #EBD9B4;border-radius:8px;padding:12px 14px;font-size:14px}
+.alert{display:none;border-radius:8px;padding:16px;font-size:14.5px}
+.alert.show{display:block}
+.alert.ok{background:#EAF6EF;border:1px solid #BFE3CE;color:#1F5C39}
+.alert.errbox{background:#FDEEEB;border:1px solid #F2C4BB;color:#7E2A1D}
+.alert.warn{background:#FFF7E8;border:1px solid #EBD9B4;color:#6B5017}
+.alert .btn{margin-top:12px;padding:11px 16px;font-size:14px}
+.side-card{border:1px solid rgba(255,255,255,.24);border-radius:12px;padding:24px;background:rgba(255,255,255,.05)}
+.side-card h3{font-family:var(--serif);font-size:22px;margin-bottom:14px}
+.summary{display:grid;gap:0}
+.summary div{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.16);font-size:14.5px}
+.summary span{color:rgba(255,255,255,.68)}.summary b{text-align:right}
+.endpoint-badge{display:inline-flex;gap:8px;align-items:center;font-size:12px;font-weight:800;padding:7px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.25)}
+.dot{width:9px;height:9px;border-radius:50%;background:#E7B95B}.dot.ok{background:#5ACB86}.dot.bad{background:#FF8A75}
+/* Расположение */
+.loc-grid{display:grid;gap:26px;margin-top:36px}
+@media(min-width:960px){.loc-grid{grid-template-columns:.85fr 1.15fr}}
+.map{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;min-height:340px;background:var(--bg-alt)}
+.map iframe{width:100%;height:100%;min-height:340px;border:0;display:block}
+.land li{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+.land b{min-width:92px;color:var(--accent-dark)}
+/* Подвал / контакты */
+.footer{background:#241812;color:#fff;padding:64px 0 110px}
+@media(min-width:900px){.footer{padding-bottom:44px}}
+.foot-grid{display:grid;gap:30px}
+@media(min-width:860px){.foot-grid{grid-template-columns:1.2fr .8fr 1fr}}
+.footer h3{font-family:var(--serif);font-size:20px;margin-bottom:14px}
+.footer p,.footer li{color:rgba(255,255,255,.74);font-size:15px}
+.footer a{color:#fff}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.16);margin-top:36px;padding-top:20px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:13px;color:rgba(255,255,255,.6)}
+/* Нижняя мобильная панель */
+.mobile-bar{position:fixed;left:0;right:0;bottom:0;z-index:55;background:rgba(255,255,255,.97);border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom));display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:8px}
+.mobile-bar a{display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;font-weight:800;font-size:13.5px;padding:12px 6px;border-radius:6px;border:1px solid var(--line);background:#fff}
+.mobile-bar a.main{background:var(--dark);color:#fff;border-color:var(--dark)}
+@media(min-width:900px){.mobile-bar{display:none}}
+/* Модалки */
+.modal{position:fixed;inset:0;z-index:100;display:none;align-items:flex-end;justify-content:center}
+@media(min-width:700px){.modal{align-items:center;padding:20px}}
+.modal.open{display:flex}
+.modal-bg{position:absolute;inset:0;background:rgba(36,24,18,.62);backdrop-filter:blur(3px)}
+.modal-box{position:relative;background:#fff;width:100%;max-width:640px;max-height:92svh;overflow:auto;border-radius:14px 14px 0 0;padding:24px}
+@media(min-width:700px){.modal-box{border-radius:14px;padding:30px}}
+.modal-close{position:absolute;top:14px;right:14px;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:#fff;font-size:18px}
+.modal-box h2{font-family:var(--serif);font-size:27px;color:var(--dark);padding-right:44px}
+.modal-box .sub{color:var(--muted);font-size:14.5px;margin:6px 0 18px}
+.policy-text{font-size:14.5px;color:var(--muted);display:grid;gap:10px;margin-top:14px}
+.code-actions{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.mini-btn{padding:9px 13px;border-radius:6px;border:1px solid var(--line);background:var(--bg);font-weight:700;font-size:13px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.card{transition:none}}
+</style>
+</head>
+<body>
+
+<!-- ================= ШАПКА (Sticky header) ================= -->
+<header class="header" id="header">
+  <div class="wrap header-in">
+    <a class="logo" href="#hero" aria-label="Гостевой дом Ольга — на главную"><b>Ольга</b><span>Гостевой дом · Краснодар</span></a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#rooms">Номера</a><a href="#amenities">Удобства</a><a href="#booking">Бронь</a><a href="#location">Расположение</a><a href="#contacts">Контакты</a>
+    </nav>
+    <div class="header-contacts">
+      <a class="phone-link" href="tel:+79054959612">8 905 495-96-12<small>Звоните ежедневно</small></a>
+      <a class="tg-btn" href="https://t.me/ckot_23" target="_blank" rel="noopener" aria-label="Написать в Telegram @ckot_23">
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.6 19 18.3c-.2 1-.8 1.2-1.7.8l-4.6-3.4-2.2 2.1c-.25.25-.45.45-.95.45l.35-4.9 8.9-8.05c.4-.35-.1-.55-.6-.2L7.2 12.1 2.5 10.6c-1-.3-1-1 .2-1.5L21.1 3.9c.85-.3 1.6.2 1.3 1.5-.15-.3-.35-.55-.5-.8Z"/></svg>
+        Telegram @ckot_23</a>
+    </div>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="mobileMenu" aria-label="Открыть меню">☰</button>
+  </div>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Мобильная навигация">
+    <a class="mlink" href="#rooms">Номера</a><a class="mlink" href="#amenities">Удобства</a><a class="mlink" href="#booking">Бронь</a><a class="mlink" href="#location">Расположение</a><a class="mlink" href="#contacts">Контакты</a>
+    <div class="mobile-actions">
+      <a class="btn btn-outline" href="tel:+79054959612">Позвонить</a>
+      <a class="btn btn-primary" href="https://t.me/ckot_23" target="_blank" rel="noopener">Telegram</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+<!-- ================= HERO ================= -->
+<section class="hero" id="hero">
+  <!-- TODO: заменить hero-фото на реальное фото гостевого дома / лучшего номера -->
+  <img class="bg" src="https://images.pexels.com/photos/39836703/pexels-photo-39836703.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" alt="Светлый уютный номер гостевого дома «Ольга» в тёплых бежевых тонах" width="1600" height="1000" fetchpriority="high">
+  <div class="wrap hero-in">
+    <span class="tag">✦ Гостевой дом-студия «Ольга»</span>
+    <h1>Гостевой дом <em>«Ольга»</em></h1>
+    <p class="sub">Гостевой дом-студия «Ольга»: все девять номеров — отдельные студии для комфортного проживания.</p>
+    <div class="hero-actions">
+      <a class="btn btn-accent" href="#booking">Забронировать номер</a>
+      <a class="btn btn-ghost" href="https://t.me/ckot_23" target="_blank" rel="noopener">✈ Связаться в Telegram</a>
+      <a class="btn btn-ghost" href="#rooms">Смотреть номера ↓</a>
+    </div>
+    <!-- Контакты на первом экране — требование заказчика -->
+    <div class="hero-contacts">
+      <div style="display:flex;gap:30px;flex-wrap:wrap">
+        <a class="hc-item" href="tel:+79054959612"><small>Телефон для брони</small><b>8 905 495-96-12</b></a>
+        <a class="hc-item" href="https://t.me/ckot_23" target="_blank" rel="noopener"><small>Telegram</small><b>@ckot_23 →</b></a>
+      </div>
+      <div class="hero-stats">
+        <div><b>9</b><span>номеров</span></div>
+        <div><b>14:00</b><span>заезд</span></div>
+        <div><b>12:00</b><span>выезд</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip"><div class="wrap strip-grid">
+  <div class="strip-item">◈<div><b>У «Красной площади»</b><span>Пешком до торгового центра</span></div></div>
+  <div class="strip-item">◎<div><b>Бесплатный Wi-Fi</b><span>Во всех номерах</span></div></div>
+  <div class="strip-item">▣<div><b>Парковка</b><span>Удобно гостям на авто</span></div></div>
+  <div class="strip-item">◐<div><b>Отчётные документы</b><span>Для командировок — отметьте в форме</span></div></div>
+</div></div>
+
+<!-- ================= О ДОМЕ ================= -->
+<section class="section">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <p class="eyebrow">О гостевом доме</p>
+      <h2 class="h2">Небольшой дом,<br>где всё продумано</h2>
+      <hr class="rule">
+      <p class="lead">Мы находимся по адресу: СТ «Топольки-4», ул. Железнодорожная, 180. Все номера гостевого дома — отдельные студии, рассчитанные на комфортное проживание.</p>
+      <ul class="check">
+        <li>Заезд с 14:00, выезд до 12:00 — ранний заезд по согласованию</li>
+        <li>Общая кухня, стиральная машина и регулярная уборка</li>
+        <li>Размещение с детьми, питомцы — по предварительному согласованию</li>
+        <li>Счёт и справка для отчётности — укажите при бронировании</li>
+      </ul>
+      <div style="margin-top:26px;display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn btn-primary" href="#booking">Узнать стоимость</a>
+        <a class="btn btn-outline" href="https://t.me/ckot_23" target="_blank" rel="noopener">Спросить в Telegram</a>
+      </div>
+    </div>
+    <figure class="about-photo reveal">
+      <!-- TODO: заменить на реальное фото территории / фасада -->
+      <img src="https://images.pexels.com/photos/31262576/pexels-photo-31262576.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200" alt="Уютный внутренний дворик гостевого дома" width="1000" height="750" loading="lazy">
+    </figure>
+  </div>
+</section>
+
+<!-- ================= НОМЕРА ================= -->
+<section class="section alt" id="rooms">
+  <div class="wrap">
+    <div class="rooms-head reveal">
+      <div><p class="eyebrow">Проживание</p><h2 class="h2">Номера-студии</h2><hr class="rule"><p class="lead">Все номера гостевого дома — студии. Цены зависят от дат и срока проживания: нажмите «Забронировать», и мы подтвердим стоимость и свободные даты.</p></div>
+      <div class="filters" role="group" aria-label="Фильтр номеров по гостям">
+        <button class="chip active" data-filter="all">Все 9 номеров</button>
+        <button class="chip" data-filter="2">На двоих</button>
+        <button class="chip" data-filter="3">Трое и больше</button>
+        <button class="chip" data-filter="family">Семейные</button>
+      </div>
+    </div>
+    <div class="rooms-grid" id="roomsGrid" aria-live="polite"></div>
+    <p class="hint" style="margin-top:18px">Фотографии — демонстрационные (Pexels). TODO: заменить ссылки в массиве ROOMS на реальные фото каждого номера.</p>
+  </div>
+</section>
+
+<!-- ================= УДОБСТВА ================= -->
+<section class="section" id="amenities">
+  <div class="wrap">
+    <div class="reveal"><p class="eyebrow">Сервис</p><h2 class="h2">Удобства и услуги</h2><hr class="rule"></div>
+    <div class="amen-grid">
+      <article class="amen reveal"><div class="ic">◎</div><h3>Wi-Fi</h3><p>Бесплатный интернет во всех номерах и общих зонах.</p></article>
+      <article class="amen reveal"><div class="ic">▣</div><h3>Парковка</h3><p>Место для автомобиля рядом с гостевым домом.</p></article>
+      <article class="amen reveal"><div class="ic">❄</div><h3>Кондиционер</h3><p>Комфортная температура в жаркие краснодарские дни.</p></article>
+      <article class="amen reveal"><div class="ic">◐</div><h3>Стиральная машина</h3><p>Для гостей, которые останавливаются надолго.</p></article>
+      <article class="amen reveal"><div class="ic">⬔</div><h3>Общая кухня</h3><p>Можно приготовить завтрак и хранить продукты.</p></article>
+      <article class="amen reveal"><div class="ic">✦</div><h3>Уборка</h3><p>Регулярная уборка и свежее постельное бельё.</p></article>
+      <article class="amen reveal"><div class="ic">➤</div><h3>Трансфер</h3><p>Поможем организовать встречу — уточняйте при брони.</p></article>
+      <article class="amen reveal"><div class="ic">♥</div><h3>Дети и питомцы</h3><p>С детьми — добро пожаловать, с питомцами — по согласованию.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= БРОНИРОВАНИЕ ================= -->
+<section class="section booking" id="booking">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow" style="color:#E8C98F">Онлайн-заявка</p>
+      <h2 class="h2">Забронировать номер</h2>
+      <p class="lead">Заполните форму — заявка попадёт к нам в таблицу и в Telegram, мы перезвоним или напишем для подтверждения и назовём стоимость. Без предоплаты на сайте.</p>
+      <p style="margin-top:16px"><span class="endpoint-badge"><span class="dot" id="endpointDot"></span><span id="endpointText">Проверяем канал онлайн-отправки…</span></span></p>
+    </div>
+
+    <div class="booking-grid">
+      <form class="form-card" id="bookingForm" novalidate>
+        <div class="alert warn" id="fallbackBanner">
+          <b>Онлайн-отправка сейчас недоступна</b> — но заявку можно отправить в один клик через Telegram: заполните форму и нажмите кнопку ниже, текст подставится сам.
+          <br><a class="btn btn-primary" id="fallbackBannerBtn" href="https://t.me/ckot_23" target="_blank" rel="noopener">✈ Отправить заявку в Telegram</a>
+        </div>
+        <div class="form-grid" style="margin-top:6px">
+          <div class="field"><label for="fName">Имя <i>*</i></label><input class="input" id="fName" name="name" type="text" autocomplete="name" placeholder="Например, Анна" maxlength="80"><p class="hint err" data-err="fName" hidden></p></div>
+          <div class="field"><label for="fPhone">Телефон <i>*</i></label><input class="input" id="fPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__"><p class="hint err" data-err="fPhone" hidden></p></div>
+          <div class="field span2"><label for="fRoom">Номер</label><select class="input" id="fRoom" name="room"></select><p class="hint" id="roomCapHint"></p></div>
+          <div class="field"><label for="fIn">Дата заезда <i>*</i></label><input class="input" id="fIn" name="checkin" type="date"><p class="hint err" data-err="fIn" hidden></p></div>
+          <div class="field"><label for="fOut">Дата выезда <i>*</i></label><input class="input" id="fOut" name="checkout" type="date"><p class="hint err" data-err="fOut" hidden></p></div>
+          <div class="span2 nights" id="nightsBox">🌙 Выберите даты — посчитаем количество ночей.</div>
+          <div class="field"><label for="fGuests">Количество гостей</label><input class="input" id="fGuests" name="guests" type="number" min="1" max="6" value="2"><p class="hint err" data-err="fGuests" hidden></p></div>
+          <div class="field"><label>Быстрый выбор гостей</label><div style="display:flex;gap:6px;flex-wrap:wrap" id="guestChips"></div></div>
+
+          <div class="span2 check-line">
+            <input type="checkbox" id="fDocs">
+            <div><label for="fDocs">🧾 Нужны отчётные документы (счёт, справка)</label><p>Нужно для командировки? Отметьте — подготовим документы. Тогда комментарий станет обязательным: укажите организацию и что именно нужно.</p></div>
+          </div>
+          <div class="field span2 hidden-field" id="requisitesWrap"><label for="fReq">Реквизиты / ИНН (необязательно)</label><input class="input" id="fReq" type="text" placeholder="Название организации, ИНН…" maxlength="200"></div>
+
+          <div class="field span2"><label for="fComment">Комментарий / пожелания <i id="commentStar" hidden>*</i></label><textarea class="input" id="fComment" rows="3" placeholder="Время приезда, детская кроватка, тихий номер, документы для…" maxlength="900"></textarea><p class="hint err" data-err="fComment" hidden></p></div>
+
+          <div class="span2 consent"><input type="checkbox" id="fConsent"><label for="fConsent">Соглашаюсь с обработкой персональных данных в соответствии с <button type="button" class="link" data-open-policy>политикой конфиденциальности</button> <i style="color:var(--err)">*</i></label></div>
+          <p class="hint err span2" data-err="fConsent" hidden></p>
+        </div>
+
+        <div class="alert ok" id="successBox" role="status"></div>
+        <div class="alert errbox" id="errorBox" role="alert"></div>
+
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px">
+          <button class="btn btn-accent" type="submit" id="submitBtn" style="flex:1;min-width:200px">Отправить заявку</button>
+          <a class="btn btn-outline" id="tgFallbackBtn" href="https://t.me/ckot_23" target="_blank" rel="noopener">✈ В Telegram</a>
+        </div>
+        <p class="hint" style="margin-top:12px">Отправляя заявку, вы не платите онлайн. Мы подтвердим свободные даты и стоимость по телефону или в Telegram.</p>
+      </form>
+
+      <aside class="side-card reveal" aria-label="Сводка бронирования">
+        <h3>Ваша заявка</h3>
+        <div class="summary">
+          <div><span>Номер</span><b id="sRoom">—</b></div>
+          <div><span>Заезд</span><b id="sIn">—</b></div>
+          <div><span>Выезд</span><b id="sOut">—</b></div>
+          <div><span>Ночей</span><b id="sNights">—</b></div>
+          <div><span>Гостей</span><b id="sGuests">2</b></div>
+          <div><span>Документы</span><b id="sDocs">Не нужны</b></div>
+          <div><span>Стоимость</span><b>По запросу</b></div>
+        </div>
+        <p style="margin-top:18px;color:rgba(255,255,255,.75);font-size:14px">⏰ Заезд с <b style="color:#fff">14:00</b> · Выезд до <b style="color:#fff">12:00</b></p>
+        <div style="display:grid;gap:10px;margin-top:18px">
+          <a class="btn btn-light" href="tel:+79054959612">☎ 8 905 495-96-12</a>
+          <a class="btn btn-ghost" href="https://t.me/ckot_23" target="_blank" rel="noopener">✈ Telegram @ckot_23</a>
+        </div>
+        <p style="margin-top:16px;font-size:13px;color:rgba(255,255,255,.65)">Не хотите заполнять форму? Просто позвоните или напишите в Telegram — ответим и подберём номер под ваши даты.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ================= РАСПОЛОЖЕНИЕ ================= -->
+<section class="section" id="location">
+  <div class="wrap">
+    <div class="reveal"><p class="eyebrow">Как нас найти</p><h2 class="h2">СТ «Топольки-4», ул. Железнодорожная, 180</h2><hr class="rule"><p class="lead">Адрес гостевого дома-студии: СТ «Топольки-4», ул. Железнодорожная, 180.</p></div>
+    <div class="loc-grid">
+      <div class="reveal">
+        <ul class="land">
+          
+          <li><b>Адрес</b><span>СТ «Топольки-4», ул. Железнодорожная, 180</span></li>
+          <li><b>На авто</b><span>Подъезд с ул. Железнодорожной, парковка у дома</span></li>
+          
+          <li><b>Заезд</b><span>с 14:00 · выезд до 12:00. Приедете позже — предупредите по телефону</span></li>
+        </ul>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px">
+          <!-- TODO: при необходимости уточните координаты точки на Яндекс.Картах -->
+          <a class="btn btn-primary" href="https://yandex.ru/maps/?ll=38.991150%2C45.097424&z=16&pt=38.991150%2C45.097424%2Cpm2rdm" target="_blank" rel="noopener">Построить маршрут ↗</a>
+          <a class="btn btn-outline" href="tel:+79054959612">Позвонить, если заблудились</a>
+        </div>
+      </div>
+      <div class="map reveal">
+        <!-- Карта: виджет Яндекс.Карт без API-ключа (iframe map-widget).
+             Если нужен Google Maps Embed — нужен ключ: замените iframe на
+             https://www.google.com/maps?q=...&output=embed (без ключа работает такой вариант). -->
+        <iframe title="Карта — СТ «Топольки-4», ул. Железнодорожная, 180" loading="lazy"
+          src="https://yandex.ru/map-widget/v1/?ll=38.991150%2C45.097424&z=16&pt=38.991150%2C45.097424%2Cpm2rdm"
+          allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</main>
+
+<!-- ================= ПОДВАЛ ================= -->
+<footer class="footer" id="contacts">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><h3>Гостевой дом «Ольга»</h3><p>Девять номеров-студий для комфортного проживания.</p></div>
+      <div><h3>Контакты</h3><ul style="display:grid;gap:9px">
+        <li>☎ <a href="tel:+79054959612">8 905 495-96-12</a></li>
+        <li>✈ <a href="https://t.me/ckot_23" target="_blank" rel="noopener">Telegram @ckot_23</a></li>
+        <li>📍 СТ «Топольки-4», ул. Железнодорожная, 180</li></ul></div>
+      <div><h3>Режим и навигация</h3><ul style="display:grid;gap:9px">
+        <li>Заезд с 14:00 · Выезд до 12:00</li>
+        <li><a href="#rooms">Номера</a> · <a href="#booking">Забронировать</a> · <a href="#location">Карта</a></li>
+        <li><button type="button" data-open-policy style="background:none;border:0;color:#fff;text-decoration:underline;padding:0">Политика конфиденциальности</button></li></ul></div>
+    </div>
+    <div class="foot-bottom"><span>© <span id="year"></span> Гостевой дом «Ольга», Краснодар</span><span>Стоимость проживания — по запросу</span></div>
+  </div>
+</footer>
+
+<!-- Нижняя мобильная панель -->
+<nav class="mobile-bar" aria-label="Быстрые действия">
+  <a href="tel:+79054959612">☎ Позвонить</a>
+  <a href="https://t.me/ckot_23" target="_blank" rel="noopener">✈ Telegram</a>
+  <a class="main" href="#booking">Забронировать</a>
+</nav>
+
+<!-- ================= МОДАЛКА: БЫСТРАЯ БРОНЬ ================= -->
+<div class="modal" id="roomModal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="modal-bg" data-close-modal></div>
+  <div class="modal-box">
+    <button class="modal-close" data-close-modal aria-label="Закрыть">✕</button>
+    <h2 id="mTitle">Бронирование</h2>
+    <p class="sub" id="mSub">Быстрая заявка на выбранный номер. Подтвердим даты и стоимость по телефону или в Telegram.</p>
+    <form id="modalForm" novalidate>
+      <input type="hidden" id="mRoom">
+      <div class="form-grid">
+        <div class="field"><label for="mName">Имя <i>*</i></label><input class="input" id="mName" type="text" autocomplete="name" placeholder="Ваше имя"></div>
+        <div class="field"><label for="mPhone">Телефон <i>*</i></label><input class="input" id="mPhone" type="tel" inputmode="tel" placeholder="+7 (___) ___-__-__"></div>
+        <div class="field"><label for="mIn">Заезд <i>*</i></label><input class="input" id="mIn" type="date"></div>
+        <div class="field"><label for="mOut">Выезд <i>*</i></label><input class="input" id="mOut" type="date"></div>
+        <div class="field"><label for="mGuests">Гостей</label><input class="input" id="mGuests" type="number" min="1" max="6" value="2"></div>
+        <div class="field"><label for="mComment">Комментарий</label><input class="input" id="mComment" type="text" placeholder="Пожелания (если есть)"></div>
+        <div class="span2 check-line"><input type="checkbox" id="mDocs"><div><label for="mDocs">🧾 Нужны отчётные документы</label><p>Если отмечено — укажите организацию в комментарии.</p></div></div>
+        <div class="span2 consent"><input type="checkbox" id="mConsent"><label for="mConsent">Соглашаюсь с обработкой персональных данных (<button type="button" class="link" data-open-policy>политика</button>) <i style="color:var(--err)">*</i></label></div>
+      </div>
+      <div class="alert ok" id="mSuccess" role="status"></div>
+      <div class="alert errbox" id="mError" role="alert"></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+        <button class="btn btn-accent" type="submit" id="mSubmit" style="flex:1;min-width:180px">Отправить заявку</button>
+        <a class="btn btn-outline" id="mTgBtn" href="https://t.me/ckot_23" target="_blank" rel="noopener">✈ В Telegram</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ================= МОДАЛКА: ПОЛИТИКА ================= -->
+<div class="modal" id="policyModal" role="dialog" aria-modal="true" aria-labelledby="pTitle">
+  <div class="modal-bg" data-close-policy></div>
+  <div class="modal-box">
+    <button class="modal-close" data-close-policy aria-label="Закрыть">✕</button>
+    <h2 id="pTitle">Политика конфиденциальности</h2>
+    <!-- TODO: вставить реальный юридический текст политики обработки персональных данных -->
+    <div class="policy-text">
+      <p><b>Это текст-заглушка.</b> Замените его на реальную политику обработки персональных данных вашего гостевого дома перед запуском сайта.</p>
+      <p>Мы обрабатываем имя, телефон, даты проживания и комментарий из формы бронирования только для подтверждения заявки и связи с гостем. Данные не передаются третьим лицам, кроме сервисов, обеспечивающих работу формы (Google Таблицы, Telegram-уведомление администратору).</p>
+      <p>Отправляя форму, вы соглашаетесь с обработкой указанных данных. Чтобы удалить данные, напишите нам в Telegram @ckot_23 или позвоните по телефону 8 905 495-96-12.</p>
+    </div>
+    <button class="btn btn-primary" data-close-policy style="margin-top:20px">Понятно</button>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   assets/js/data.js — КОНФИГ И ДАННЫЕ (редактировать здесь)
+   В многофайловом проекте этот блок — отдельный файл data.js,
+   логика ниже — app.js и booking.js.
+   ============================================================ */
+const CONFIG = {
+  // TODO: вставьте URL веб-приложения Google Apps Script после деплоя:
+  // API_URL: "https://script.google.com/macros/s/AKfy.../exec",
+  API_URL: "",
+  PHONE_DISPLAY: "8 905 495-96-12",
+  PHONE_TEL: "+79054959612",
+  TELEGRAM_USERNAME: "@ckot_23",
+  TELEGRAM_URL: "https://t.me/ckot_23",
+  SOURCE: "Сайт — гостевой дом «Ольга»"
+};
+
+/* Массив номеров: легко редактировать/добавлять.
+   photos: по 3 фото на номер (демо Pexels — TODO: заменить на реальные). */
+const ROOMS = [
+  {id:"room-1", name:"Стандарт «Классика»", badge:"Хит для командировок", family:false, description:"Компактный светлый номер для одного или двоих: удобная кровать, рабочее место и всё нужное для короткой поездки.", area:16, guests:2, beds:"1 двуспальная кровать", amenities:["Wi-Fi","Кондиционер","Санузел","ТВ","Шкаф"], photos:["https://images.pexels.com/photos/7745929/pexels-photo-7745929.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200","https://images.pexels.com/photos/8082220/pexels-photo-8082220.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200","https://images.pexels.com/photos/7745980/pexels-photo-7745980.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"]},
+  {id:"room-2", name:"Стандарт Twin", badge:"Две кровати", family:false, description:"Номер с двумя раздельными кроватями — удобно коллегами в командировке, друзьям и родителям с подростком.", area:18, guests:2, beds:"2 односпальные кровати", amenities:["Wi-Fi","Кондиционер","Санузел","ТВ","Стол"], photos:["https://images.pexels.com/photos/14025032/pexels-photo-14025032.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200","https://images.pexels.com/photos/14025910/pexels-photo-14025910.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200","https://images.pexels.com/photos/7746092/pexels-photo-7746092.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"]},
+  {id:"room-3", name:"Комфорт", badge:"Больше пространства", family:false, description:"Просторный номер с зоной отдыха: большая кровать, мягкое освещение и вид на тихий двор.", area:22, guests:2, beds:"1 кровать king-size", amenities:["Wi-Fi","Кондиционер","Санузел","ТВ","Кресло","Чайная станция"], photos:["https://images.pexels.com/photos/8082217/pexels-photo-8082217.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200","https://images.pexels.com/photos/8082236/pexels-photo-8082236.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200","https://images.pexels.com/photos/15867752/pexels-photo-15867752.png?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"]},
+  {id:"room-4", name:"Комфорт+ с балконом", badge:"С балконом", family:false, description:"Светлый номер с балконом для неспешных утра: кофе на свежем воздухе и много естественного света.", area:24, guests:3, beds:"Кровать + кресло-кровать", amenities:["Wi-Fi","Кондиционер","Санузел","ТВ","Балкон"], photos:["https://images.pexels.com/photos/39836716/pexels-photo-39836716.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200","https://images.pexels.com/photos/39836722/pexels-photo-39836722.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200","https://images.pexels.com/photos/35261473/pexels-photo-35261473.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"]},
+  {id:"room-5", name:"Семейный", badge:"Для семьи", family:true, description:"Номер для семьи с детьми: большая кровать и дополнительные спальные места, место для коляски и чемоданов.", area:30, guests:4, beds:"Кровать + диван-кровать", amenities:["Wi-Fi","Кондиционер","Санузел","ТВ","Детская кроватка по запросу"], photos:["https://images.pexels.com/photos/14025911/pexels-photo-14025911.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200","https://images.pexels.com/photos/14025024/pexels-photo-14025024.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200","https://images.pexels.com/photos/14025908/pexels-photo-14025908.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"]},
+  {id:"room-6", name:"Полулюкс «Сад»", badge:"Полулюкс", family:true, description:"Тихий полулюкс с окнами в зелень: отдельная зона отдыха, просторный санузел и атмосфера бутик-отеля.", area:32, guests:3, beds:"1 кровать king-size + софа", amenities:["Wi-Fi","Кондиционер","Санузел","ТВ","Софа","Халаты"], photos:["https://images.pexels.com/photos/39836703/pexels-photo-39836703.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200","https://images.pexels.com/photos/16436925/pexels-photo-16436925.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200","https://images.pexels.com/photos/26729321/pexels-photo-26729321.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"]},
+  {id:"room-7", name:"Двухместный «Тёплый»", badge:"Самый уютный", family:false, description:"Камерный номер в тёплых тонах для двоих: мягкий текстиль, прикроватный свет и тишина вдали от дороги.", area:19, guests:2, beds:"1 двуспальная кровать", amenities:["Wi-Fi","Кондиционер","Санузел","ТВ"], photos:["https://images.pexels.com/photos/3940536/pexels-photo-3940536.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200","https://images.pexels.com/photos/39643616/pexels-photo-39643616.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200","https://images.pexels.com/photos/7745929/pexels-photo-7745929.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"]},
+  {id:"room-8", name:"Трёхместный", badge:"На троих", family:true, description:"Практичный номер на троих гостей: три полноценных спальных места — для компании или семьи с ребёнком постарше.", area:26, guests:3, beds:"Кровать + односпальная кровать", amenities:["Wi-Fi","Кондиционер","Санузел","ТВ","Большой шкаф"], photos:["https://images.pexels.com/photos/14025910/pexels-photo-14025910.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200","https://images.pexels.com/photos/14025032/pexels-photo-14025032.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200","https://images.pexels.com/photos/8082220/pexels-photo-8082220.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"]},
+  {id:"room-9", name:"Люкс «Ольга»", badge:"Лучший номер", family:true, description:"Самый просторный номер дома: гостиная зона, большая кровать и детали, ради которых сюда возвращаются.", area:38, guests:4, beds:"King-size + диван-кровать", amenities:["Wi-Fi","Кондиционер","Санузел","ТВ","Гостиная зона","Чайная станция"], photos:["https://images.pexels.com/photos/8082220/pexels-photo-8082220.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200","https://images.pexels.com/photos/39836716/pexels-photo-39836716.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200","https://images.pexels.com/photos/7745929/pexels-photo-7745929.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200"]}
+];
+
+/* ============ Утилиты (app.js) ============ */
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const todayISO=()=>{const d=new Date();d.setMinutes(d.getMinutes()-d.getTimezoneOffset());return d.toISOString().slice(0,10)};
+const plusDays=(iso,n)=>{const d=new Date(iso+"T12:00:00");d.setDate(d.getDate()+n);return d.toISOString().slice(0,10)};
+const fmtDate=iso=>iso?new Date(iso+"T12:00:00").toLocaleDateString("ru-RU",{day:"numeric",month:"long",year:"numeric"}):"—";
+function maskPhone(input){
+  input.addEventListener("input",()=>{
+    let d=input.value.replace(/\D/g,"");
+    if(d.startsWith("8")) d="7"+d.slice(1);
+    if(d && !d.startsWith("7")) d="7"+d;
+    d=d.slice(0,11);
+    let out="";
+    if(d.length>0) out="+7";
+    if(d.length>1) out+=" ("+d.slice(1,4);
+    if(d.length>=4) out+=") "+d.slice(4,7);
+    if(d.length>=7) out+="-"+d.slice(7,9);
+    if(d.length>=9) out+="-"+d.slice(9,11);
+    input.value=out;
+  });
+}
+const validPhone=v=>v.replace(/\D/g,"").length===11;
+
+/* ============ Рендер номеров + карусели ============ */
+const grid=$("roomsGrid");
+function roomCard(r,idx){
+  return `<article class="card reveal in" data-guests="${r.guests}" data-family="${r.family?1:0}">
+    <div class="carousel" data-car="${r.id}">
+      <img src="${esc(r.photos[0])}" alt="Номер «${esc(r.name)}» — фото 1" width="800" height="600" loading="${idx<3?"eager":"lazy"}" data-car-img>
+      <span class="badge">${esc(r.badge)}</span>
+      <button class="car-btn car-prev" data-dir="-1" aria-label="Предыдущее фото номера ${esc(r.name)}">‹</button>
+      <button class="car-btn car-next" data-dir="1" aria-label="Следующее фото номера ${esc(r.name)}">›</button>
+      <div class="dots">${r.photos.map((_,i)=>`<i class="${i===0?"on":""}"></i>`).join("")}</div>
+    </div>
+    <div class="card-body">
+      <h3>${esc(r.name)}</h3><p>${esc(r.description)}</p>
+      <div class="specs"><span>▣ ${r.area} м²</span><span>👥 до ${r.guests} гостей</span><span>🛏 ${esc(r.beds)}</span></div>
+      <div class="amens">${r.amenities.map(a=>`<span>· ${esc(a)}</span>`).join("")}</div>
+      <div class="card-foot">
+        <div class="price-note"><b>Стоимость — по запросу</b>подтвердим при брони</div>
+        <button class="btn btn-primary" data-book-room="${esc(r.id)}">Забронировать</button>
+      </div>
+      <button class="btn btn-outline" data-book-room="${esc(r.id)}" style="width:100%;padding:11px">Узнать стоимость</button>
+    </div></article>`;
+}
+grid.innerHTML=ROOMS.map(roomCard).join("");
+grid.querySelectorAll("[data-car]").forEach(car=>{
+  const room=ROOMS.find(r=>r.id===car.dataset.car); let i=0;
+  const img=car.querySelector("[data-car-img]"), dots=[...car.querySelectorAll(".dots i")];
+  car.querySelectorAll(".car-btn").forEach(b=>b.addEventListener("click",()=>{
+    i=(i+Number(b.dataset.dir)+room.photos.length)%room.photos.length;
+    img.src=room.photos[i]; img.alt=`Номер «${room.name}» — фото ${i+1}`;
+    dots.forEach((d,k)=>d.classList.toggle("on",k===i));
+  }));
+});
+document.querySelectorAll("[data-filter]").forEach(ch=>ch.addEventListener("click",()=>{
+  document.querySelectorAll("[data-filter]").forEach(c=>c.classList.remove("active")); ch.classList.add("active");
+  const f=ch.dataset.filter;
+  grid.querySelectorAll(".card").forEach(card=>{
+    const show=f==="all"||(f==="family"?card.dataset.family==="1":Number(card.dataset.guests)>=Number(f)&& (f!=="2"||Number(card.dataset.guests)===2));
+    card.style.display=show?"":"none";
+  });
+}));
+
+/* Заполнение select номеров в основной форме */
+const roomSelect=$("fRoom");
+roomSelect.innerHTML=`<option value="">Любой свободный номер</option>`+ROOMS.map(r=>`<option value="${esc(r.id)}">${esc(r.name)} · до ${r.guests} гостей · ${r.area} м²</option>`).join("");
+const roomById=id=>ROOMS.find(r=>r.id===id);
+
+/* ============ Дата-логика, гости, сводка (booking.js) ============ */
+const fIn=$("fIn"),fOut=$("fOut"),fGuests=$("fGuests"),fDocs=$("fDocs");
+[fIn,$("mIn")].forEach(el=>el.min=todayISO());
+function syncDates(inEl,outEl){
+  if(inEl.value){ outEl.min=plusDays(inEl.value,1); if(outEl.value && outEl.value<=inEl.value) outEl.value=plusDays(inEl.value,1); if(!outEl.value) outEl.value=plusDays(inEl.value,1); }
+}
+function nightsBetween(a,b){ if(!a||!b) return 0; return Math.round((new Date(b)-new Date(a))/864e5); }
+function setErr(id,msg){ const e=document.querySelector(`[data-err="${id}"]`),inp=$(id); if(e){e.hidden=!msg;e.textContent=msg||"";} if(inp) inp.classList.toggle("bad",!!msg); }
+function updateSummary(){
+  const r=roomById(roomSelect.value);
+  $("sRoom").textContent=r?r.name:"Любой свободный";
+  $("sIn").textContent=fmtDate(fIn.value); $("sOut").textContent=fmtDate(fOut.value);
+  const n=nightsBetween(fIn.value,fOut.value);
+  $("sNights").textContent=n>0?String(n):"—";
+  $("sGuests").textContent=fGuests.value||"—";
+  $("sDocs").textContent=fDocs.checked?"Нужны 🧾":"Не нужны";
+  $("nightsBox").textContent=n>0?`🌙 ${n} ${n===1?"ночь":n<5?"ночи":"ночей"} · заезд ${fmtDate(fIn.value)} → выезд ${fmtDate(fOut.value)}`:"🌙 Выберите даты — посчитаем количество ночей.";
+  /* Проверка вместимости */
+  if(r){ $("roomCapHint").textContent=`Вместимость номера: до ${r.guests} гостей · ${r.area} м² · ${r.beds}`; setErr("fGuests",Number(fGuests.value)>r.guests?`В номере «${r.name}» максимум ${r.guests} гостей — выберите номер побольше или уменьшите число гостей.`:""); }
+  else { $("roomCapHint").textContent="Подберём свободный номер под ваши даты и число гостей."; setErr("fGuests",""); }
+  if(fOut.value&&fIn.value&&fOut.value<=fIn.value) setErr("fOut","Выезд должен быть позже заезда (минимум 1 ночь)."); else setErr("fOut","");
+  refreshFallbackLinks(collectMain());
+}
+fIn.addEventListener("change",()=>{syncDates(fIn,fOut);updateSummary()});
+fOut.addEventListener("change",updateSummary);
+fGuests.addEventListener("input",updateSummary);
+roomSelect.addEventListener("change",updateSummary);
+fDocs.addEventListener("change",()=>{
+  $("requisitesWrap").classList.toggle("open",fDocs.checked);
+  $("commentStar").hidden=!fDocs.checked; updateSummary();
+});
+$("guestChips").innerHTML=[1,2,3,4,5,6].map(n=>`<button type="button" class="chip" data-g="${n}" style="padding:8px 14px">${n}</button>`).join("");
+$("guestChips").querySelectorAll("[data-g]").forEach(b=>b.addEventListener("click",()=>{fGuests.value=b.dataset.g;updateSummary()}));
+[ $("fPhone"),$("mPhone") ].forEach(maskPhone);
+$("mIn").addEventListener("change",()=>syncDates($("mIn"),$("mOut")));
+
+/* Сбор данных и текст для Telegram-fallback */
+function collectMain(){
+  const r=roomById(roomSelect.value);
+  return {name:$("fName").value.trim(),phone:$("fPhone").value.trim(),room:r?r.name:"Любой свободный номер",roomId:roomSelect.value,checkin:fIn.value,checkout:fOut.value,guests:Number(fGuests.value)||1,docs:fDocs.checked,requisites:$("fReq").value.trim(),comment:$("fComment").value.trim(),consent:$("fConsent").checked,source:CONFIG.SOURCE};
+}
+function bookingText(d){
+  return `🏡 Новая бронь — Гостевой дом «Ольга»\n\n👤 Имя: ${d.name||"—"}\n📞 Телефон: ${d.phone||"—"}\n🛏 Номер: ${d.room}\n📅 Заезд: ${fmtDate(d.checkin)} | Выезд: ${fmtDate(d.checkout)}\n👥 Гостей: ${d.guests}\n🧾 Отчётные документы: ${d.docs?"ДА":"НЕТ"}${d.requisites?`\n🏢 Реквизиты/ИНН: ${d.requisites}`:""}\n📝 Комментарий: ${d.comment||"—"}`;
+}
+function tgShareUrl(d){ return `https://t.me/share/url?url=${encodeURIComponent(CONFIG.TELEGRAM_URL)}&text=${encodeURIComponent(bookingText(d))}`; }
+function refreshFallbackLinks(d){ $("tgFallbackBtn").href=tgShareUrl(d); $("fallbackBannerBtn").href=tgShareUrl(d); }
+
+/* Валидация */
+function validate(d,scope){
+  let ok=true;
+  const need=(cond,id,msg)=>{ if(scope==="main") setErr(id,cond?"":msg); if(!cond) ok=false; };
+  need(d.name.length>=2,"fName","Укажите, пожалуйста, ваше имя.");
+  need(validPhone(d.phone),"fPhone","Укажите телефон в формате +7 (___) ___-__-__.");
+  need(!!d.checkin,"fIn","Выберите дату заезда.");
+  need(!!d.checkout&&d.checkout>d.checkin,"fOut","Выезд должен быть минимум на следующий день после заезда.");
+  need(d.guests>=1&&d.guests<=6,"fGuests","Количество гостей: от 1 до 6.");
+  const r=roomById(d.roomId); if(r&&d.guests>r.guests){ if(scope==="main") setErr("fGuests",`В номере «${r.name}» максимум ${r.guests} гостей.`); ok=false; }
+  need(!d.docs||d.comment.length>=3,"fComment","Для отчётных документов заполните комментарий: организация и какие документы нужны.");
+  need(d.consent,"fConsent","Нужно согласие на обработку персональных данных.");
+  return ok;
+}
+
+/* Отправка в Apps Script: idle → submitting → success/error */
+let endpointAlive=false;
+async function sendBooking(d){
+  if(!CONFIG.API_URL) throw new Error("Онлайн-отправка ещё не подключена владельцем (не заполнен CONFIG.API_URL).");
+  const ctrl=new AbortController(); const t=setTimeout(()=>ctrl.abort(),12000);
+  try{
+    const res=await fetch(CONFIG.API_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d),signal:ctrl.signal});
+    const data=await res.json().catch(()=>({}));
+    if(!res.ok||data.ok===false) throw new Error(data.error||"Сервер вернул ошибку. Попробуйте отправить заявку в Telegram.");
+    return data;
+  }finally{ clearTimeout(t); }
+}
+function setSubmitting(form,btn,on,label){
+  btn.disabled=on; btn.textContent=on?"Отправляем…":label;
+  form.querySelectorAll("input,select,textarea").forEach(el=>{ if(el!==btn) el.disabled=on; });
+}
+$("bookingForm").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const d=collectMain();
+  $("successBox").className="alert ok"; $("errorBox").className="alert errbox";
+  if(!validate(d,"main")){ $("errorBox").innerHTML="Проверьте выделенные поля — кое-что нужно поправить, и заявка отправится."; $("errorBox").classList.add("show"); return; }
+  setSubmitting(e.target,$("submitBtn"),true,"Отправить заявку");
+  try{
+    await sendBooking(d);
+    $("successBox").innerHTML=`<b>✓ Заявка отправлена.</b> Спасибо, ${esc(d.name)}! Мы свяжемся с вами в ближайшее время по телефону ${esc(d.phone)}, подтвердим даты и назовём стоимость.<br><a class="btn btn-primary" href="${CONFIG.TELEGRAM_URL}" target="_blank" rel="noopener">✈ Написать в Telegram</a>`;
+    $("successBox").classList.add("show"); e.target.reset(); fGuests.value=2; $("requisitesWrap").classList.remove("open"); updateSummary();
+  }catch(err){
+    $("errorBox").innerHTML=`<b>Не удалось отправить онлайн.</b> ${esc(err.message)}<br>Ваша заявка не потеряется: отправьте её в Telegram — текст уже заполнен.<br><a class="btn btn-primary" href="${tgShareUrl(d)}" target="_blank" rel="noopener">✈ Отправить заявку в Telegram</a> <a class="btn btn-outline" href="tel:${CONFIG.PHONE_TEL}">☎ ${CONFIG.PHONE_DISPLAY}</a>`;
+    $("errorBox").classList.add("show");
+  }finally{ setSubmitting(e.target,$("submitBtn"),false,"Отправить заявку"); }
+});
+
+/* Ping эндпоинта при загрузке (doGet) — не ломать страницу при недоступности */
+async function pingEndpoint(){
+  const dot=$("endpointDot"),txt=$("endpointText");
+  if(!CONFIG.API_URL){ dot.className="dot bad"; txt.textContent="Онлайн-отправка: через Telegram (Apps Script ещё не подключён)"; $("fallbackBanner").classList.add("show"); return; }
+  try{
+    const ctrl=new AbortController(); setTimeout(()=>ctrl.abort(),4000);
+    const r=await fetch(CONFIG.API_URL,{method:"GET",signal:ctrl.signal});
+    if(!r.ok) throw 0; endpointAlive=true; dot.className="dot ok"; txt.textContent="Онлайн-отправка работает — заявка уйдёт в таблицу и Telegram";
+  }catch{ dot.className="dot bad"; txt.textContent="Онлайн-канал недоступен — используйте отправку через Telegram ниже"; $("fallbackBanner").classList.add("show"); }
+}
+
+/* ============ Модалка быстрой брони ============ */
+const roomModal=$("roomModal");
+function openModal(m){ m.classList.add("open"); document.body.style.overflow="hidden"; }
+function closeModal(m){ m.classList.remove("open"); document.body.style.overflow=""; }
+document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-book-room]");
+  if(b){ const r=roomById(b.dataset.bookRoom); if(!r) return;
+    $("mRoom").value=r.id; $("mTitle").textContent="«"+r.name+"»";
+    $("mSub").textContent=`${r.area} м² · до ${r.guests} гостей · ${r.beds}. Стоимость — по запросу: подтвердим при ответе на заявку.`;
+    $("mGuests").max=r.guests; if(Number($("mGuests").value)>r.guests) $("mGuests").value=r.guests;
+    if(fIn.value){$("mIn").value=fIn.value; syncDates($("mIn"),$("mOut"));}
+    openModal(roomModal);
+  }
+  if(e.target.closest("[data-close-modal]")) closeModal(roomModal);
+  if(e.target.closest("[data-open-policy]")) openModal($("policyModal"));
+  if(e.target.closest("[data-close-policy]")) closeModal($("policyModal"));
+});
+document.addEventListener("keydown",e=>{ if(e.key==="Escape"){closeModal(roomModal);closeModal($("policyModal"));} });
+function collectModal(){ const r=roomById($("mRoom").value); return {name:$("mName").value.trim(),phone:$("mPhone").value.trim(),room:r?r.name:"Любой свободный номер",roomId:$("mRoom").value,checkin:$("mIn").value,checkout:$("mOut").value,guests:Number($("mGuests").value)||1,docs:$("mDocs").checked,requisites:"",comment:$("mComment").value.trim(),consent:$("mConsent").checked,source:CONFIG.SOURCE+" (модальное окно)"}; }
+$("modalForm").addEventListener("input",()=>{ $("mTgBtn").href=tgShareUrl(collectModal()); });
+$("modalForm").addEventListener("submit",async e=>{
+  e.preventDefault(); const d=collectModal();
+  $("mSuccess").className="alert ok"; $("mError").className="alert errbox";
+  if(!validate(d,"modal")){ $("mError").innerHTML="Заполните имя, телефон (+7…), корректные даты и отметьте согласие. Если нужны документы — напишите организацию в комментарии."; $("mError").classList.add("show"); return; }
+  setSubmitting(e.target,$("mSubmit"),true,"Отправить заявку");
+  try{ await sendBooking(d);
+    $("mSuccess").innerHTML=`<b>✓ Заявка отправлена!</b> Мы свяжемся с вами по телефону ${esc(d.phone)}.<br><a class="btn btn-primary" href="${CONFIG.TELEGRAM_URL}" target="_blank" rel="noopener">✈ Написать в Telegram</a>`; $("mSuccess").classList.add("show");
+  }catch(err){ $("mError").innerHTML=`<b>Онлайн-отправка недоступна.</b> Отправьте заявку в Telegram — текст готов.<br><a class="btn btn-primary" href="${tgShareUrl(d)}" target="_blank" rel="noopener">✈ Отправить заявку в Telegram</a>`; $("mError").classList.add("show"); }
+  finally{ setSubmitting(e.target,$("mSubmit"),false,"Отправить заявку"); }
+});
+
+/* ============ Шапка, бургер, анимации ============ */
+$("burger").addEventListener("click",()=>{ const m=$("mobileMenu"),open=m.classList.toggle("open"); $("burger").setAttribute("aria-expanded",open); $("burger").textContent=open?"✕":"☰"; });
+$("mobileMenu").querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{$("mobileMenu").classList.remove("open");$("burger").textContent="☰"}));
+addEventListener("scroll",()=>$("header").classList.toggle("scrolled",scrollY>8),{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(en=>en.isIntersecting&&en.target.classList.add("in")),{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+$("year").textContent=new Date().getFullYear();
+
+/* Старт */
+updateSummary(); pingEndpoint();
+</script>
+</body>
+</html>
