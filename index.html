@@ -450,8 +450,14 @@ maskPhone($("fPhone"));
 function collect(){
   return {name:$("fName").value.trim(),phone:$("fPhone").value.trim(),consent:$("fConsent").checked,source:CONFIG.SOURCE};
 }
-/* В заявку уходят только имя, телефон и служебный источник — согласие остаётся в форме */
-const payload=d=>({name:d.name,phone:d.phone,source:d.source});
+/* В заявку уходят только имя, телефон и служебный источник — согласие остаётся в форме.
+   clientId нужен, чтобы сайт мог проверить в таблице, что строка действительно появилась,
+   и чтобы повторная отправка не создала дубль. */
+function newClientId(){
+  try{ if(crypto&&crypto.randomUUID) return crypto.randomUUID(); }catch(e){}
+  return "id-"+Date.now().toString(36)+"-"+Math.random().toString(36).slice(2,10);
+}
+const payload=(d,id)=>({name:d.name,phone:d.phone,source:d.source,clientId:id});
 function bookingText(d){
   return `🏡 Новая заявка — Гостевой дом «Ольга»\n\n👤 Имя: ${d.name||"—"}\n📞 Телефон: ${d.phone||"—"}\n\nПерезвоните, чтобы подтвердить даты и стоимость.`;
 }
@@ -470,6 +476,7 @@ $("bookingForm").addEventListener("change",()=>refreshFallbackLinks(collect()));
 
 /* Если онлайн-канал не подключён — заявка уходит через Telegram */
 let onlineReady=false;
+let pingState="pending"; // pending | ok | bad — пока проверка не закончилась, пробуем онлайн
 function openTelegram(d){
   const url=tgShareUrl(d);
   const a=document.createElement("a"); a.href=url; a.target="_blank"; a.rel="noopener"; document.body.appendChild(a); a.click(); a.remove();
@@ -477,24 +484,82 @@ function openTelegram(d){
   $("successBox").classList.add("show");
 }
 
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+
+/* JSONP: Apps Script не отдаёт CORS-заголовки, но отдаёт JS вида callback({...}).
+   Уникальный callback в URL заодно снимает кэширование ответа. */
+function jsonp(params,timeoutMs){
+  return new Promise((resolve,reject)=>{
+    const cb="__olgaCb"+Date.now().toString(36)+Math.floor(Math.random()*1e6);
+    const script=document.createElement("script");
+    let done=false;
+    const cleanup=()=>{ clearTimeout(timer); script.remove(); try{ delete window[cb]; }catch(e){ window[cb]=undefined; } };
+    const timer=setTimeout(()=>{ if(done) return; done=true; cleanup(); reject(new Error("timeout")); },timeoutMs||8000);
+    window[cb]=data=>{ if(done) return; done=true; cleanup(); resolve(data||{}); };
+    script.onerror=()=>{ if(done) return; done=true; cleanup(); reject(new Error("network")); };
+    const q=new URLSearchParams(Object.assign({},params,{callback:cb}));
+    script.src=CONFIG.API_URL+(CONFIG.API_URL.includes("?")?"&":"?")+q.toString();
+    document.head.appendChild(script);
+  });
+}
+
+/* Отправка заявки с ПРОВЕРКОЙ.
+   1) POST no-cors (основной путь; ответ opaque, поэтому сам по себе ничего не доказывает);
+   2) JSONP ?action=check&id=… — спрашиваем скрипт, появилась ли строка в таблице;
+   3) если подтверждения нет — JSONP ?action=book… (резервный путь, тоже с записью в таблицу).
+   Успехом считаем только явное saved:true, иначе показываем ошибку и Telegram-кнопку. */
 async function sendBooking(d){
   if(!CONFIG.API_URL) throw new Error("Онлайн-отправка ещё не подключена владельцем (не заполнен CONFIG.API_URL).");
-  const ctrl=new AbortController(); const t=setTimeout(()=>ctrl.abort(),12000);
+  const id=newClientId();
+  const body=payload(d,id);
+
   try{
-    // Apps Script не отвечает на preflight OPTIONS и не отдаёт CORS-заголовки:
-    // шлём «простой» запрос (text/plain) в no-cors. Ответ непрозрачный (opaque),
-    // но сама заявка доходит до doPost — это и есть подтверждение доставки.
-    await fetch(CONFIG.API_URL,{
-      method:"POST",
-      mode:"no-cors",
-      headers:{"Content-Type":"text/plain;charset=utf-8"},
-      body:JSON.stringify(d),
-      redirect:"follow",
-      cache:"no-store",
-      signal:ctrl.signal
-    });
-    return {ok:true,delivered:true};
-  }finally{ clearTimeout(t); }
+    const ctrl=new AbortController(); const t=setTimeout(()=>ctrl.abort(),12000);
+    try{
+      await fetch(CONFIG.API_URL,{
+        method:"POST",
+        mode:"no-cors",
+        headers:{"Content-Type":"text/plain;charset=utf-8"},
+        body:JSON.stringify(body),
+        redirect:"follow",
+        cache:"no-store",
+        signal:ctrl.signal
+      });
+    }finally{ clearTimeout(t); }
+  }catch(err){ console.warn("Ольга · POST не прошёл, пробуем резервный канал:",err); }
+
+  // Проверяем, что строка реально в таблице (до 3 попыток).
+  let server=null;
+  for(let i=0;i<3;i++){
+    try{
+      const res=await jsonp({action:"check",id},5000);
+      if(res && res.saved===true) return {ok:true,id,telegram:res.telegram,row:res.row};
+      if(res && res.ok===false) server=res;
+    }catch(err){ /* сеть/таймаут — пробуем ещё */ }
+    await sleep(i===0?700:1500);
+  }
+
+  // Резервный путь: та же заявка через GET+JSONP, результат приходит в ответе.
+  try{
+    const res=await jsonp({action:"book",name:d.name,phone:d.phone,source:d.source,id},12000);
+    if(res && res.saved===true) return {ok:true,id,telegram:res.telegram,row:res.row};
+    if(res && res.ok===false) server=res;
+  }catch(err){
+    console.warn("Ольга · резервный канал не ответил:",err);
+  }
+
+  throw new Error(friendlyError(server));
+}
+
+/* Технические подробности — в консоль браузера владельцу, гостю — короткая причина. */
+function friendlyError(server){
+  const code=(server&&server.code)||"";
+  if(code) console.warn("Ольга · приём заявок: "+code+" — "+(server.error||server.message||""));
+  if(code==="NAME") return "Укажите, пожалуйста, имя.";
+  if(code==="PHONE") return "Укажите телефон в формате +7 (___) ___-__-__.";
+  if(code==="NO_SPREADSHEET"||code==="NO_SHEET") return "Приём заявок на сайте временно не настроен.";
+  if(code==="WRITE"||code==="CHECK") return "Сервис приёма заявок временно недоступен.";
+  return "Сервер не подтвердил сохранение заявки.";
 }
 function setSubmitting(form,btn,on,label){
   btn.disabled=on; btn.textContent=on?"Отправляем…":label;
@@ -505,36 +570,66 @@ $("bookingForm").addEventListener("submit",async e=>{
   const d=collect();
   $("successBox").className="alert ok"; $("errorBox").className="alert errbox";
   if(!validate(d)){ $("errorBox").innerHTML="Проверьте выделенные поля — кое-что нужно поправить, и заявка отправится."; $("errorBox").classList.add("show"); return; }
-  if(!onlineReady){ openTelegram(d); return; }
+  // Канал явно не работает — сразу Telegram. Если проверка ещё идёт, пробуем онлайн:
+  // sendBooking сам подтвердит запись и честно сообщит, если не получилось.
+  if(!onlineReady && pingState==="bad"){ openTelegram(d); return; }
   setSubmitting(e.target,$("submitBtn"),true,"Отправить заявку");
   try{
-    await sendBooking(payload(d));
-    $("successBox").innerHTML=`<b>✓ Заявка отправлена.</b> Спасибо, ${esc(d.name)}! Мы сохранили её и получили уведомление в Telegram. Свяжемся с вами в ближайшее время по телефону ${esc(d.phone)}, подтвердим даты и назовём стоимость.<br><a class="btn btn-primary" href="${CONFIG.TELEGRAM_URL}" target="_blank" rel="noopener">✈ Написать в Telegram</a> <a class="btn btn-outline" href="${tgShareUrl(d)}" target="_blank" rel="noopener">Продублировать заявку</a>`;
+    const res=await sendBooking(d);
+    const tgOk=!res.telegram||/^Отправлено/.test(res.telegram);
+    if(tgOk){
+      $("successBox").innerHTML=`<b>✓ Заявка сохранена.</b> Спасибо, ${esc(d.name)}! Строка уже в таблице, уведомление ушло в Telegram. Свяжемся с вами по телефону ${esc(d.phone)}, подтвердим даты и назовём стоимость.<br><a class="btn btn-primary" href="${CONFIG.TELEGRAM_URL}" target="_blank" rel="noopener">✈ Написать в Telegram</a> <a class="btn btn-outline" href="${tgShareUrl(d)}" target="_blank" rel="noopener">Продублировать заявку</a>`;
+    }else{
+      $("successBox").innerHTML=`<b>✓ Заявка сохранена в таблице.</b> Спасибо, ${esc(d.name)}! Уведомление в Telegram не ушло (${esc(res.telegram)}), но заявка на месте — перезвоним по номеру ${esc(d.phone)}.<br><a class="btn btn-outline" href="${tgShareUrl(d)}" target="_blank" rel="noopener">Продублировать в Telegram</a>`;
+    }
     $("successBox").classList.add("show"); e.target.reset(); refreshFallbackLinks(collect());
   }catch(err){
-    $("errorBox").innerHTML=`<b>Не удалось отправить онлайн.</b> ${esc(err.message)}<br>Ваша заявка не потеряется: отправьте её в Telegram — текст уже заполнен.<br><a class="btn btn-primary" href="${tgShareUrl(d)}" target="_blank" rel="noopener">✈ Отправить заявку в Telegram</a> <a class="btn btn-outline" href="tel:${CONFIG.PHONE_TEL}">☎ ${CONFIG.PHONE_DISPLAY}</a>`;
+    $("errorBox").innerHTML=`<b>Заявка НЕ отправлена.</b> ${esc(err.message)}<br>Чтобы не потерять бронь, отправьте её в Telegram — текст с именем и телефоном уже готов, или позвоните.<br><a class="btn btn-primary" href="${tgShareUrl(d)}" target="_blank" rel="noopener">✈ Отправить заявку в Telegram</a> <a class="btn btn-outline" href="tel:${CONFIG.PHONE_TEL}">☎ ${CONFIG.PHONE_DISPLAY}</a>`;
     $("errorBox").classList.add("show");
   }finally{ setSubmitting(e.target,$("submitBtn"),false,"Отправить заявку"); }
 });
 
 /* Проверка канала при загрузке: doGet отвечает JSONP-скриптом ?callback=...
-   (обычный fetch GET не прочитать из-за отсутствия CORS-заголовков у Apps Script). */
+   (обычный fetch GET не прочитать из-за отсутствия CORS-заголовков у Apps Script).
+   Проверяем не «сайт отвечает», а конкретно: доступна ли таблица и настроен ли Telegram. */
 function pingEndpoint(){
-  const dot=$("endpointDot"),txt=$("endpointText");
-  if(!CONFIG.API_URL){ dot.className="dot"; txt.textContent="Заявка отправится через Telegram"; $("fallbackBanner").classList.add("show"); return; }
-  const cb="__olgaPing"+Date.now();
-  const script=document.createElement("script");
-  let finished=false, timer;
-  const cleanup=()=>{ clearTimeout(timer); script.remove(); try{ delete window[cb]; }catch(e){ window[cb]=undefined; } };
-  const fail=()=>{ if(finished) return; finished=true; cleanup(); onlineReady=false;
-    dot.className="dot bad"; txt.textContent="Онлайн-канал недоступен — заявка уйдёт через Telegram"; $("fallbackBanner").classList.add("show"); };
-  const ok=()=>{ if(finished) return; finished=true; cleanup(); onlineReady=true;
-    dot.className="dot ok"; txt.textContent="Онлайн-отправка работает — заявка уйдёт в таблицу и Telegram"; };
-  timer=setTimeout(fail,5000);
-  window[cb]=ok;
-  script.src=CONFIG.API_URL+(CONFIG.API_URL.includes("?")?"&":"?")+"callback="+cb;
-  script.onerror=fail;
-  document.head.appendChild(script);
+  const dot=$("endpointDot"),txt=$("endpointText"),banner=$("fallbackBanner");
+  if(!CONFIG.API_URL){ dot.className="dot"; txt.textContent="Заявка отправится через Telegram"; banner.classList.add("show"); return; }
+
+  const fail=msg=>{
+    onlineReady=false; pingState="bad";
+    console.warn("Ольга · онлайн-канал заявок недоступен: "+msg+"\nПроверка для владельца: откройте "+CONFIG.API_URL+"?action=diag");
+    dot.className="dot bad";
+    dot.title=msg;
+    txt.textContent="Онлайн-заявка сейчас не принимается — отправьте её в Telegram";
+    banner.innerHTML=`<b>Онлайн-заявка сейчас не принимается.</b> Нажмите «Отправить заявку» — мы откроем готовое сообщение в Telegram, останется его отправить. Так бронь не потеряется.`;
+    banner.classList.add("show");
+  };
+  const ok=(msg)=>{
+    onlineReady=true; pingState="ok";
+    dot.className="dot ok";
+    txt.textContent=msg;
+  };
+
+  const check=(attempt)=>jsonp({action:"diag"},12000).then(info=>{
+    if(!info||typeof info!=="object") throw new Error("пустой ответ сервера");
+    if(info.sheetOk!==true){
+      // Скрипт ответил, но таблица недоступна — заявки не сохранялись бы.
+      if(attempt<1){ return new Promise(r=>setTimeout(r,1500)).then(()=>check(attempt+1)); }
+      fail((info.code?info.code+": ":"")+(info.message||info.error||"таблица недоступна"));
+      return;
+    }
+    if(info.telegramConfigured!==true){
+      ok("Заявка сохранится в таблицу, но Telegram-уведомление не настроено");
+    }else{
+      ok("Онлайн-отправка работает — заявка уйдёт в таблицу и Telegram");
+    }
+  }).catch(()=>{
+    if(attempt<1){ return new Promise(r=>setTimeout(r,1800)).then(()=>check(attempt+1)); }
+    fail("веб-приложение не отвечает — проверьте, что URL оканчивается на /exec, доступ «Все» и развёрнута новая версия");
+  });
+
+  check(0);
 }
 
 /* ============ Модалка политики ============ */
